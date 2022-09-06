@@ -2,6 +2,10 @@ from turtle import*
 import turtle
 from random import randrange
 from freegames import square,vector
+import pyttsx3
+speaker = pyttsx3.init()
+voices=speaker.getProperty('voices')
+speaker.setProperty('voice' ,voices[0].id)
 wn=turtle.Screen()
 wn.bgcolor("black") 
 
@@ -21,6 +25,8 @@ def move():
         square(head.x,head.y,10,'yellow')
         update()
         print("GAME OVER!!!!")
+        speaker.say("GAME OVER!!!!")
+        speaker.runAndWait()
         return
 
     s.append(head)
